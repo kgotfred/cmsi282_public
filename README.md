@@ -75,10 +75,10 @@ ___
 #### 5) Public and private keys<br>
 *What are the RSA's public and private keys generated from p = 23847623789462398745236743254827634647 and q = 80147623789462398745236743254827634711?*<br>
 
-**N** = pq = 1911330379750465988511865475607817924950038631764482538080744390093883432017<br>
-**Ø** = (p-1)(q-1) = 191133037975046598851186547560781792484604338418555774059027093584228162660<br>
-**e** = 7<br>
-**d** = modular inverse (e, Ø) = 81914159132162828079079948954620768207687573607952474596725897250383498283
+N = `pq = 1911330379750465988511865475607817924950038631764482538080744390093883432017`<br>
+Ø = `(p-1)(q-1) = 191133037975046598851186547560781792484604338418555774059027093584228162660`<br>
+e = `7`<br>
+d = `modular inverse (e, Ø) = 81914159132162828079079948954620768207687573607952474596725897250383498283`
 
 **_Public Key (N, e):_**<br>
 `(1911330379750465988511865475607817924950038631764482538080744390093883432017, 7)`
@@ -106,9 +106,9 @@ def oddFactor(n):
 ```
 This method returns 822893 when 729880581317 is input. 729880581317 / 822893 = 886969. Using handy dandy Google, I verified that both 822893 and 886969 are prime. The user's p and q values are 822893 and 886969.
 
-Ø = (p-1)(q-1) = 822892 * 886968 = 729878871456<br>
-e = 5
-d = modular inverse of 729878871456 relative to 5 = 583903097165<br>
+Ø = `(p-1)(q-1) = 822892 * 886968 = 729878871456`<br>
+e = `5`<br>
+d = `modular inverse of 729878871456 relative to 5 = 583903097165`<br>
 
 **Her private key is (583903097165, 5)**
 
@@ -152,11 +152,11 @@ M = 391398879885526901013984096355053422
 
 ######Calculate the public and private keys and sign the message:
 
-I chose the two primes p = 41 and q = 37.<br>
-**N** = pq = 1517<br>
-**Ø** = (p-1)(q-1) = 1440<br>
-**e** = 7<br>
-**d** = modular inverse (e, Ø) = 823
+I chose the two primes `p = 41` and `q = 37`.<br>
+N = `pq = 1517`<br>
+Ø = `(p-1)(q-1) = 1440`<br>
+e = `7`<br>
+d = `modular inverse (e, Ø) = 823`
 
 The sign formula is `m^d mod N`. Therefore my signature is `391398879885526901013984096355053422^823 mod 1517`, or **1293.**
 
@@ -174,9 +174,9 @@ Here are my input values for **sign** and **verify**:<br>
 
 ##### Part D:
 If Bob's public key is (391, 17), we need to find the two primes p and q that factor 391. With an educated guess (using the knowledge that 391^(1/2) is ~19.7), I found p and q to be 17 and 23. With this information we can discover Bob's private key:<br>
-**Ø** = (p-1)(q-1) = 352<br>
-**e** = 17<br>
-**d** = modular inverse (e, Ø) = 145<br>
+Ø = `(p-1)(q-1) = 352`<br>
+e = `17`<br>
+d = `modular inverse (e, Ø) = 145`<br>
 
 **Alice needs to raise her message to the Bob's private key d, which is 145.**
 
@@ -264,6 +264,5 @@ def majority(a):
     return None
 ```
 This algorithm essentially does what the Dasgupta book hints at, but in a more efficient way. It "pairs up" two elements and looks at each pair - then, rather than "discarding" or "keeping" any elements, it uses a counter to add or subtract from the current candidate's score. After going through the list, the candidate will reflect the most frequent element, if one exists. The final *if* statement ensures that the candidate is indeed the majority element before returning it; otherwise it returns None.
-
 
 
